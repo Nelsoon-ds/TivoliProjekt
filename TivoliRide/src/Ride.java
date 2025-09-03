@@ -3,7 +3,7 @@ package Lesson04.Exercise;
 import java.util.Scanner;
 
 public class Ride {
-    static long minHeight;
+    long minHeight;
     String name;
 
 
@@ -14,6 +14,7 @@ public class Ride {
 
     public String showName() {
         return this.name;
+        //why dis no work?
     }
 
     public static double getHeight() {
@@ -21,12 +22,12 @@ public class Ride {
         System.out.println("What is your height in centimeters?: ");
         return sc.nextDouble();
     }
-    public static boolean heightCheck() {
+    public boolean heightCheck() {
         boolean tallEnough;
         tallEnough = getHeight() > minHeight;
         return tallEnough;
     }
-    public static void startRide() {
+    public void startRide() {
         if (heightCheck()) {
             System.out.println("You're tall enough");
         }  else {
