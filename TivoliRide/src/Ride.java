@@ -3,15 +3,19 @@ package Lesson04.Exercise;
 import java.util.Scanner;
 
 public class Ride {
-    long minHeight;
+    static long minHeight;
     String name;
-
+    static int counter;
 
     public Ride(long minHeight, String name) {
         this.minHeight = minHeight;
         this.name = name;
+        counter++;
     }
 
+    public static int getCounter(){
+        return counter;
+    }
     public String showName() {
         return this.name;
         //why dis no work?
@@ -22,12 +26,12 @@ public class Ride {
         System.out.println("What is your height in centimeters?: ");
         return sc.nextDouble();
     }
-    public boolean heightCheck() {
+    public static boolean heightCheck() {
         boolean tallEnough;
         tallEnough = getHeight() > minHeight;
         return tallEnough;
     }
-    public void startRide() {
+    public static void startRide() {
         if (heightCheck()) {
             System.out.println("You're tall enough");
         }  else {
