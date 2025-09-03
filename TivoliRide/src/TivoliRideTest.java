@@ -14,17 +14,19 @@ public class TivoliRideTest {
         for (int i = 0; i < Ride.getCounter(); i++) {
             System.out.println(i + 1 + ": " + rides[i].showName());
         }
+        // Tager brugerens input til brug i vores Ride array.
+        // Vi bruger derefter bruger inputtet til at vælge det korrekte index i rides arrayet
+        // Derefter printer vi hvilken forlystelse man har valgt + dens metode showName
+        // Afslutningsvist så kalder vi den specifikke rides startRide funktion.
+        Scanner sc = new Scanner(System.in);
         System.out.println("Please input the number corresponding to your desired ride: ");
         int input = sc.nextInt();
-
         if (input > 0 && input <= rides.length) {
             Ride selectedRide = rides[input - 1];
             System.out.println("Selected ride: " + selectedRide.showName());
-            selectedRide.startRide();
+            selectedRide.startRide(selectedRide);
         }
     }
-
-    static Scanner sc = new Scanner(System.in);
 
     public static Ride[] makeRide() {
         Ride[] allRides = new Ride[3];
@@ -36,9 +38,5 @@ public class TivoliRideTest {
         allRides[1] = r2;
         allRides[2] = r3;
         return allRides;
-    }
-
-    // method:
-    public void printResult() {
     }
 }
